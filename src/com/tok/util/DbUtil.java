@@ -19,8 +19,10 @@ public class DbUtil {
                // Properties prop = new Properties();
                // InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
                // prop.load(inputStream);
+            	// ssh -f -N exozet@app1.castaclip.net -L 9999:10.0.79.2:5432
                 String driver = "org.postgresql.Driver";//prop.getProperty("driver");
-                String url = "jdbc:postgresql://127.0.0.1:9999/postgres"; //prop.getProperty("url");
+                //String url = "jdbc:postgresql://127.0.0.1:9999/postgres"; //prop.getProperty("url");
+                String url = "jdbc:postgresql://10.0.79.2:5432/postgres";
                 String user = "foo";//prop.getProperty("user");
                 String password = "foo"; //prop.getProperty("password");
                 try {

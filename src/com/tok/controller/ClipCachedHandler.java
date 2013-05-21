@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tok.dao.ClipDao;
 import com.tok.dao.ClipDaoWithCaching;
-public class ClipHandler extends HttpServlet{
+public class ClipCachedHandler extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
     //private static String INSERT_OR_EDIT = "/user.jsp";
     private static String LIST_Articles = "/listArticles.jsp";
-    private ClipDao dao = null;
+    private ClipDaoWithCaching dao = null;
 
-    public ClipHandler() {
+    public ClipCachedHandler() {
         super();
-        dao = new ClipDao();//new ClipDao();
+        dao = new ClipDaoWithCaching();//new ClipDao();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

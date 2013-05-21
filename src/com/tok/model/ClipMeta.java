@@ -8,6 +8,19 @@ public class ClipMeta {
 	private String description;
 	private String thumb;
 	private Date date;
+	
+	public ClipMeta(){
+		
+	}
+	public ClipMeta(int id, String title, String description,Date date, String thumb,String url ){
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.thumb = thumb;
+		this.date = date;
+		this.url = url;
+	}
+	
 	public int getId() {
 		return id;
 	}

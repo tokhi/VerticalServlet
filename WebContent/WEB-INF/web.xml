@@ -10,8 +10,18 @@
     <servlet-name>ClipHandler</servlet-name>
     <servlet-class>com.tok.controller.ClipHandler</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ClipCachedHandler</display-name>
+    <servlet-name>ClipCachedHandler</servlet-name>
+    <servlet-class>com.tok.controller.ClipCachedHandler</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ClipHandler</servlet-name>
     <url-pattern>/ClipHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClipCachedHandler</servlet-name>
+    <url-pattern>/ClipCachedHandler</url-pattern>
   </servlet-mapping>
 </web-app>

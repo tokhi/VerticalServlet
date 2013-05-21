@@ -29,6 +29,7 @@ public class ClipDao {
 		List<ClipMeta> clips = new ArrayList<ClipMeta>();
 		try {
 			Statement statement = connection.createStatement();
+			//String sql = "select clips.id, clips.title, clips.description, clips.updated_at, clips_assets.name, clips_assets.default, clips_assets.type FROM test.clips INNER JOIN test.clips_assets ON clips.id = clips_assets.id AND clips_assets.type = '2' AND clips_assets.default = 1 INNER JOIN test.items_channels ON clips.id = items_channels.clip_id AND items_channels.channel_id = (select channel_id FROM test.slots where id = "+slotId+") order by items_channels.position LIMIT 7";
 			ResultSet rs = statement.executeQuery("select id, title, description, extract(epoch from updated_at),duration from test.clips,test.items_channels where channel_id = (select channel_id from test.slots where id="+slotId+") and clips.id = items_channels.clip_id order by position");
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date today = new Date();
@@ -62,7 +63,7 @@ public class ClipDao {
 	//public List<String> listSlotImages() {
 	public String[] listSlotImages() {
 		try{
-			Statement s = connection.createStatement();
+			Statement s = connection.createStatement();					
 			s.executeQuery("select name,'default',id from test.clips_assets where type='2' and id="+id+" order by clip_freeze_frame_format_id");
 			ResultSet rs = s.getResultSet();
 			int index = 0;
@@ -113,6 +114,8 @@ public class ClipDao {
 		}
 		return clpArray;
 	}
+	
+	
 	/*public static void main(String[] args){
 		ClipDao d = new ClipDao();
 		System.out.println(d.getClipsViaArray().length);
